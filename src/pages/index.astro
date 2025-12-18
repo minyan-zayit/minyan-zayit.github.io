@@ -1,0 +1,28 @@
+---
+import '../styles.scss'
+import _config from "../config.json";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="generator" content={Astro.generator} />
+		<title>{ _config.title }</title>
+	</head>
+	<body>
+		<section class="hero is-fullheight">
+			<div class="hero-body">
+				<div class="container has-text-centered">
+					<h1 class="title">
+						{ _config.title }
+					</h1>
+					<p class="subtitle">
+						{ _config.subtitle }
+					</p>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
