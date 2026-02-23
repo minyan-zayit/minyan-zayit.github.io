@@ -1,0 +1,15 @@
+---
+import { Picture } from 'astro:assets';
+import logo from '../assets/mz_logo.png';
+import { siteConfig } from "../schemas/config";
+const { description } = siteConfig;
+---
+
+<section class="hero is-small has-text-centered">
+  <div class="hero-body">
+    <figure class="image">
+      <Picture src={logo} formats={['avif', 'webp']} alt=`Logo of ${siteConfig.name}.` />
+    </figure>
+    <p class="mt-5">{description}</p>
+  </div>
+</section>

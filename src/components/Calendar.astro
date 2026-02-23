@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
+import Event from './Event.astro';
+
+import { siteConfig } from "../schemas/config";
+const { calendar } = siteConfig;
+
+const futureEvents = (events: CollectionEntry<'icsCalendar'>[] ) => {
+  const today = new Date();
+  return events.filter(event => { return event.data.start >= today;})
+};
+
+const events = await getCollection("icsCalendar");
+const upcomingEvents = futureEvents(events);
+
+---
+<div class="grid is-col-min-12">
+    {upcomingEvents.slice(0, 3).map((event) => (
+            <Event {event}/>
+        ))
+    }
+</div>
+<a class="button" href={calendar.public}>See All Events</a>

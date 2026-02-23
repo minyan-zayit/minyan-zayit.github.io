@@ -1,0 +1,32 @@
+---
+import type { Ics } from "../schemas/config";
+
+interface Props {
+    event: {
+        id: string;
+        data: Ics;
+    }
+}
+
+const { event } = Astro.props;
+
+const eventDetails = {
+    date: event.data.start.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"}),
+    time: event.data.start.toLocaleTimeString("en-US", {hour: 'numeric', minute: '2-digit'}),
+    summary: event.data.summary,
+    location: event.data.location
+}
+---
+
+<div class="cell box" id=`event-${event.id}`>
+    <p class="title is-5">{ eventDetails.date }</p>
+    <p class="subtitle is-5">{ eventDetails.summary }</p>
+    <p>{ eventDetails.location }</p>
+    <p>{ eventDetails.time }</p>
+</div>
+
+<style>
+    .title, .subtitle {
+        font-weight: 400;
+    }
+</style>
