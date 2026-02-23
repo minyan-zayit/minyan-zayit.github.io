@@ -11,7 +11,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
     "@fontsource-variable/figtree": "^5.2.10",
-    "astro": "^5.17.1",
+    "astro": "^5.17.2",
     "astro-seo": "^1.1.0",
     "bulma": "^1.0.4",
     "node-ical": "^0.25.4",
