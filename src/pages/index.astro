@@ -5,7 +5,6 @@ import "@fontsource-variable/figtree";
 
 import Calendar from "../components/Calendar.astro";
 import Hero from "../components/Hero.astro";
-import Contact from "../components/Contact.astro";
 
 import { siteConfig } from "../schemas/config";
 const { name, subtitle, description, calendar } = siteConfig;
@@ -49,6 +48,5 @@ const { name, subtitle, description, calendar } = siteConfig;
 				<Calendar server:defer {calendar} />
 			</div>
 		</div>
-		<!-- <Footer/> -->
 	</body>
 </html>
