@@ -13,10 +13,32 @@ const { name, subtitle, description, calendar } = siteConfig;
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link
+			rel="icon"
+			href="/favicon.ico"
+			type="image/x-icon"
+			sizes="16x16"
+		/>
+		<link
+			rel="icon"
+			href="/favicon-32x32.png"
+			type="image/png"
+			sizes="32x32"
+		/>
+		<link
+			rel="icon"
+			href="/favicon-192x192.png"
+			type="image/png"
+			sizes="192x192"
+		/>
+		<link
+			rel="apple-touch-icon"
+			href="/favicon-192x192.png"
+			sizes="192x192"
+		/>
 		<title>{name} {subtitle && `| ${subtitle}`}</title>
 		<SEO
 			title=`${name}`
