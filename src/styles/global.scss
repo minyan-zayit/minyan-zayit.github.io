@@ -1,8 +1,7 @@
 // Path to Bulma's sass folder
-$primary: #990000;
+$primary: #365b43;
 
 @use "bulma/sass" with (
     $family-primary: '"Figtree Variable", sans-serif',
-    $family-secondary: '"Crimson Pro Variable", serif',
     $primary: $primary
 );

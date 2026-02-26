@@ -39,14 +39,20 @@ const { name, subtitle, description, calendar } = siteConfig;
 	</head>
 	<body>
 		<section class="section">
-			<div class="container is-max-tablet box">
+			<div class="container is-max-tablet box is-bordered">
 				<Hero />
 			</div>
 		</section>
 		<div class="section">
-			<div class="container is-max-tablet box">
+			<div class="container is-max-tablet box is-bordered">
 				<Calendar {calendar} />
 			</div>
 		</div>
 	</body>
 </html>
+
+<style>
+	.box.is-bordered {
+		border: 1px solid var(--bulma-primary); /* A standard Bulma grey color */
+	}
+</style>

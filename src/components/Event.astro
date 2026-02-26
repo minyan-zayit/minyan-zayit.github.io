@@ -22,18 +22,21 @@ const eventDetails = {
 <div class="cell box" id=`event-${event.id}`>
     <div class="block">
     <p class="title is-5">{ eventDetails.date }</p>
-    <p class="subtitle is-5">{ eventDetails.summary }</p>
+    <p class="subtitle is-5 is-uppercase">{ eventDetails.summary }</p>
     <p>{ eventDetails.location }</p>
     <p>{ eventDetails.time }</p>
     </div>
     { eventDetails.description ?
-        <a class="button is-fullwidth" href={ eventDetails.description }>RSVP</a> :
-        <button class="button is-fullwidth" disabled>RSVP Not Available</button>
+        <a class="button is-fullwidth is-primary is-outlined has-background-light" href={ eventDetails.description }>RSVP</a> :
+        <button class="button is-fullwidth is-primary is-outlined has-background-light" disabled>RSVP Not Available</button>
     }
 </div>
 
 <style>
     .title, .subtitle {
         font-weight: 400;
+    }
+    .box:last-child { 
+        margin-bottom: 1.5rem;
     }
 </style>
