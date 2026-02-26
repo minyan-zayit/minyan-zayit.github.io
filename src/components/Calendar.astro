@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from 'astro:content';
 import Event from './Event.astro';
-
+import Header from './Header.astro';
 import { siteConfig } from "../schemas/config";
 const { calendar } = siteConfig;
 
@@ -15,10 +15,11 @@ const events = await getCollection("icsCalendar");
 const upcomingEvents = futureEvents(events);
 
 ---
+<Header>Upcoming Events</Header>
 <div class="grid is-col-min-12">
     {upcomingEvents.slice(0, 3).map((event) => (
             <Event {event}/>
         ))
     }
 </div>
-<a class="button" href={calendar.public}>See All Events</a>
+<a class="button is-fullwidth box" href={calendar.public}>See All Events</a>

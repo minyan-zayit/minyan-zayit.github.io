@@ -14,15 +14,22 @@ const eventDetails = {
     date: event.data.start.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"}),
     time: event.data.start.toLocaleTimeString("en-US", {hour: 'numeric', minute: '2-digit'}),
     summary: event.data.summary,
-    location: event.data.location
+    location: event.data.location,
+    description: event.data.description
 }
 ---
 
 <div class="cell box" id=`event-${event.id}`>
+    <div class="block">
     <p class="title is-5">{ eventDetails.date }</p>
     <p class="subtitle is-5">{ eventDetails.summary }</p>
     <p>{ eventDetails.location }</p>
     <p>{ eventDetails.time }</p>
+    </div>
+    { eventDetails.description ?
+        <a class="button is-fullwidth" href={ eventDetails.description }>RSVP</a> :
+        <button class="button is-fullwidth" disabled>RSVP Not Available</button>
+    }
 </div>
 
 <style>

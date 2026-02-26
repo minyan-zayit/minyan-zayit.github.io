@@ -5,7 +5,7 @@ import "@fontsource-variable/figtree";
 
 import Calendar from "../components/Calendar.astro";
 import Hero from "../components/Hero.astro";
-import Footer from "../components/Footer.astro";
+import Contact from "../components/Contact.astro";
 
 import { siteConfig } from "../schemas/config";
 const { name, subtitle, description, calendar } = siteConfig;
@@ -40,15 +40,15 @@ const { name, subtitle, description, calendar } = siteConfig;
 	</head>
 	<body>
 		<section class="section">
-			<div class="container">
+			<div class="container is-max-tablet box">
 				<Hero />
 			</div>
 		</section>
 		<div class="section">
-			<div class="container">
+			<div class="container is-max-tablet">
 				<Calendar {calendar} />
 			</div>
 		</div>
-		<Footer/>
+		<!-- <Footer/> -->
 	</body>
 </html>

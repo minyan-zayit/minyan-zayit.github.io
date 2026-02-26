@@ -1,15 +1,28 @@
 ---
 import { Picture } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 import logo from '../assets/mz_logo.png';
 import { siteConfig } from "../schemas/config";
-const { description } = siteConfig;
+const { description, email } = siteConfig;
 ---
 
 <section class="hero is-small has-text-centered">
   <div class="hero-body">
-    <figure class="image">
+    <figure class="image block">
       <Picture src={logo} formats={['avif', 'webp']} alt=`Logo of ${siteConfig.name}.` />
     </figure>
-    <p class="mt-5">{description}</p>
+    <div class="block">
+      <p class="mt-5 is-size-4-tablet">{description}</p>
+    </div>
+    <div class="block">
+      <div class="buttons is-centered">
+      <a class="button" href=`mailto:${email}`>
+          <span class="icon">
+            <Icon name="mdi-light:email"/>
+          </span>
+          <span>{email}</span>
+      </a>
+    </div>
+</div>
   </div>
 </section>
