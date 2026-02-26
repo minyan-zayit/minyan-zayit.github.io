@@ -12,7 +12,7 @@
     "@astrojs/sitemap": "^3.7.0",
     "@fontsource-variable/figtree": "^5.2.10",
     "@iconify-json/mdi-light": "^1.2.2",
-    "astro": "^5.17.2",
+    "astro": "^5.17.3",
     "astro-icon": "^1.1.5",
     "astro-seo": "^1.1.0",
     "bulma": "^1.0.4",
