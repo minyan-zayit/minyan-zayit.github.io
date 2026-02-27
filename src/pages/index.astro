@@ -60,16 +60,16 @@ const { name, subtitle, description, calendar } = siteConfig;
 		/>
 	</head>
 	<body>
-		<section class="section">
+		<header class="section" role="banner">
 			<div class="container is-max-tablet box is-bordered">
 				<Hero />
 			</div>
-		</section>
-		<section class="section">
+		</header>
+		<main class="section">
 			<div class="container is-max-tablet box is-bordered">
 				<Calendar {calendar} />
 			</div>
-		</section>
+		</main>
 	</body>
 </html>
 
