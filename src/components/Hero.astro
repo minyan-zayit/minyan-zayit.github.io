@@ -1,0 +1,77 @@
+---
+import { Picture } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import logotype from '../assets/mz_logo.png';
+import logotypeWhite from '../assets/mz_logo_white.png';
+import logotypeV from '../assets/mz_logo_vertical.png';
+import logotypeVWhite from '../assets/mz_logo_vertical_white.png';
+import { siteConfig } from "../schemas/config";
+const { description, email } = siteConfig;
+---
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <figure class="image block">
+      <div class="is-hidden-mobile">
+        <div class="is-hidden-dark-mode">
+          <Picture 
+            src={logotype} 
+            formats={['avif', 'webp']} 
+            alt=`Logo of ${siteConfig.name}.` 
+          />
+        </div>
+        <div class="is-hidden-light-mode">
+          <Picture 
+            src={logotypeWhite} 
+            formats={['avif', 'webp']} 
+            alt=`Logo of ${siteConfig.name}.` 
+          />
+        </div>
+      </div>
+      <div class="is-hidden-tablet">
+        <div class="is-hidden-dark-mode">
+          <Picture 
+            src={logotypeV} 
+            formats={['avif', 'webp']} 
+            alt=`Logo of ${siteConfig.name}.` 
+          />
+        </div>
+        <div class="is-hidden-light-mode">
+          <Picture 
+            src={logotypeVWhite} 
+            formats={['avif', 'webp']} 
+            alt=`Logo of ${siteConfig.name}.` 
+          />
+        </div>
+      </div>
+    </figure>
+    <div class="block">
+      <p class="mt-5 is-size-5-tablet">{description}</p>
+    </div>
+    <div class="block">
+      <div class="buttons is-centered">
+      <a class="button is-primary is-outlined has-background-light" href=`mailto:${email}`>
+          <span class="icon">
+            <Icon name="mdi-light:email"/>
+          </span>
+          <span>{email}</span>
+      </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Use Bulma's theme selectors or standard media queries */
+  .is-hidden-light-mode { display: none; }
+
+  /* Target system preference OR Bulma's .theme-dark class */
+  @media (prefers-color-scheme: dark) {
+    .is-hidden-dark-mode { display: none; }
+    .is-hidden-light-mode { display: block; }
+  }
+
+  /* If using a manual Bulma theme toggle on the <html> tag */
+  :global(html[data-theme="dark"]) .is-hidden-dark-mode { display: none; }
+  :global(html[data-theme="dark"]) .is-hidden-light-mode { display: block; }
+</style>

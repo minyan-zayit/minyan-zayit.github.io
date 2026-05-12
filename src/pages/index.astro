@@ -1,28 +1,64 @@
 ---
-import '../styles.scss'
-import _config from "../config.json";
+import Calendar from "../components/Calendar.astro";
+import WhoWeAre from "../components/WhoWeAre.astro";
+import Hero from "../components/Hero.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="generator" content={Astro.generator} />
-		<title>{ _config.title }</title>
-	</head>
-	<body>
-		<section class="hero is-fullheight">
-			<div class="hero-body">
-				<div class="container has-text-centered">
-					<h1 class="title">
-						{ _config.title }
-					</h1>
-					<p class="subtitle">
-						{ _config.subtitle }
-					</p>
+<MainLayout>
+	<header class="section" role="banner">
+		<div class="container is-max-tablet box is-bordered">
+			<Hero />
+		</div>
+	</header>
+	<main class="section">
+		<div class="container is-max-tablet box is-bordered">
+			<div class="mx-5 mb-4">
+				<div class="tabs is-centered">
+					<ul>
+						<li class="tab is-active" data-target="events">
+							<a>Upcoming Events</a>
+						</li>
+						<li class="tab" data-target="who-we-are">
+							<a>How and Why We Daven</a>
+						</li>
+					</ul>
+				</div>
+				<div id="events" class="toggle-content">
+					<Calendar />
+				</div>
+				<div id="who-we-are" class="toggle-content hidden">
+					<WhoWeAre />
 				</div>
 			</div>
-		</section>
-	</body>
-</html>
+		</div>
+	</main>
+</MainLayout>
+
+<style>
+	.hidden {
+		display: none;
+	}
+</style>
+
+<script>
+	const tabs = document.querySelectorAll(".tab");
+	const contents = document.querySelectorAll(".toggle-content");
+
+	tabs.forEach((tab) => {
+		tab.addEventListener("click", () => {
+			const targetId = tab.getAttribute("data-target");
+
+			tabs.forEach((btn) => btn.classList.remove("is-active"));
+			tab.classList.add("is-active");
+			
+			contents.forEach((content) => {
+				if (content.id === targetId) {
+					content.classList.remove("hidden");
+				} else {
+					content.classList.add("hidden");
+				}
+			});
+		});
+	});
+</script>

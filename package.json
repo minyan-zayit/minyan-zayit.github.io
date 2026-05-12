@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "minyan-zayit",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,8 +9,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.2.2",
+    "@astrojs/netlify": "^6.6.4",
+    "@astrojs/sitemap": "^3.7.0",
+    "@fontsource-variable/figtree": "^5.2.10",
+    "@iconify-json/mdi-light": "^1.2.2",
+    "astro": "^5.18.0",
+    "astro-icon": "^1.1.5",
+    "astro-seo": "^1.1.0",
     "bulma": "^1.0.4",
-    "sass": "^1.99.0"
+    "marked": "^18.0.3",
+    "node-gyp": "^12.3.0",
+    "node-ical": "^0.25.4",
+    "sass": "^1.97.3"
   }
 }
