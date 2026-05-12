@@ -15,7 +15,7 @@ const events = await getCollection("icsCalendar");
 const upcomingEvents = futureEvents(events);
 
 ---
-<Header>Upcoming Events</Header>
+<!-- <Header>Upcoming Events</Header> -->
 <div class="grid is-col-min-12">
     {upcomingEvents.slice(0, 4).map((event) => (
             <Event {event}/>

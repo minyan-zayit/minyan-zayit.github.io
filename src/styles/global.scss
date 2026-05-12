@@ -3,7 +3,10 @@ $primary: #365b43;
 
 @use "bulma/sass" with (
     $family-primary: '"Figtree Variable", sans-serif',
-    $primary: $primary
+    $primary: $primary,
+    $tabs-link-active-color: $primary,
+    $tabs-link-active-border-bottom-color: $primary,
+    $link: $primary
 );
 
 .box.is-bordered {
