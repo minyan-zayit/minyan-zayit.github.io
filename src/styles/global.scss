@@ -5,3 +5,7 @@ $primary: #365b43;
     $family-primary: '"Figtree Variable", sans-serif',
     $primary: $primary
 );
+
+.box.is-bordered {
+    border: 1px solid var(--bulma-primary);
+}

@@ -20,6 +20,7 @@ export const configSchema = z.object({
   name: z.string(),
   subtitle: z.string().optional(),
   description: z.string().optional(),
+  whoWeAre: z.string(),
   email: z.string().email(),
   calendar: calendarSchema
 })

@@ -1,0 +1,68 @@
+---
+import { SEO } from "astro-seo";
+import "@fontsource-variable/figtree";
+import "../styles/global.scss";
+
+import { siteConfig } from "../schemas/config";
+const { name, subtitle, description } = siteConfig;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link
+			rel="icon"
+			href="/favicon.ico"
+			type="image/x-icon"
+			sizes="16x16"
+		/>
+		<link
+			rel="icon"
+			href="/favicon-32x32.png"
+			type="image/png"
+			sizes="32x32"
+		/>
+		<link
+			rel="icon"
+			href="/favicon-192x192.png"
+			type="image/png"
+			sizes="192x192"
+		/>
+		<link
+			rel="apple-touch-icon"
+			href="/favicon-192x192.png"
+			sizes="192x192"
+		/>
+		<title>{name} {subtitle && `| ${subtitle}`}</title>
+		<SEO
+			title=`${name}`
+			description=`${description}`
+			charset="UTF-8"
+			canonical=`${Astro.url.href}`
+			openGraph={{
+				basic: {
+					title: `${name}`,
+					type: "website",
+					image: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+				},
+				optional: {
+					description: `${description}`,
+					locale: "en_US",
+					siteName: `${name}`,
+				},
+			}}
+		/>
+	</head>
+	<body>
+		<slot/>
+	</body>
+</html>
+
+<style>
+	.box.is-bordered {
+		border: 1px solid var(--bulma-primary);
+	}
+</style>
