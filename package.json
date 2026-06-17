@@ -9,7 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^7.0.8",
+    "@astrojs/netlify": "^7.0.13",
     "@astrojs/sitemap": "^3.7.0",
     "@fontsource-variable/figtree": "^5.2.10",
     "@iconify-json/mdi-light": "^1.2.2",
