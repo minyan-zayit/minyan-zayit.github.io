@@ -1,14 +1,11 @@
 ---
-import { marked } from 'marked';
-import Header from "./Header.astro";
+import { marked } from "marked";
 import { siteConfig } from "../schemas/config";
 const { whoWeAre } = siteConfig;
 
 const parsed = marked.parse(whoWeAre);
 ---
 
-<!-- <Header>How and Why We Daven</Header> -->
-
 <div class="block">
-    <article class="mt-5 is-size-5-tablet" set:html={parsed}></article>
+    <article class="mt-5 is-size-5-tablet" set:html={parsed} />
 </div>

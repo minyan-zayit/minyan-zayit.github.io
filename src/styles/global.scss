@@ -12,3 +12,13 @@ $primary: #365b43;
 .box.is-bordered {
     border: 1px solid var(--bulma-primary);
 }
+
+.title { 
+    color: var(--bulma-primary);
+ }
+
+@media (prefers-color-scheme: dark) {
+    .title {
+        color: var(--bulma-light);
+    }
+}

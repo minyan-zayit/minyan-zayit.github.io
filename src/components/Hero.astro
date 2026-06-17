@@ -10,7 +10,7 @@ const { description, email } = siteConfig;
 ---
 
 <section class="hero is-small">
-  <div class="hero-body">
+  <div class="hero-body m-0 p-0">
     <figure class="image block">
       <div class="is-hidden-mobile">
         <div class="is-hidden-dark-mode">
@@ -62,16 +62,10 @@ const { description, email } = siteConfig;
 </section>
 
 <style>
-  /* Use Bulma's theme selectors or standard media queries */
   .is-hidden-light-mode { display: none; }
 
-  /* Target system preference OR Bulma's .theme-dark class */
   @media (prefers-color-scheme: dark) {
     .is-hidden-dark-mode { display: none; }
     .is-hidden-light-mode { display: block; }
   }
-
-  /* If using a manual Bulma theme toggle on the <html> tag */
-  :global(html[data-theme="dark"]) .is-hidden-dark-mode { display: none; }
-  :global(html[data-theme="dark"]) .is-hidden-light-mode { display: block; }
 </style>

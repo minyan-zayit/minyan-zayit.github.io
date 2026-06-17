@@ -1,0 +1,12 @@
+---
+interface Props {
+    title?: string;
+}
+
+const { title } = Astro.props;
+
+---
+<div class="container is-max-tablet box is-bordered px-6 py-6">
+    { title ? <p class="title is-uppercase has-text-weight-normal has-text-centered"> {title} </p> : "" }
+    <slot/>
+</div>
