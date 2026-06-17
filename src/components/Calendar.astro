@@ -14,12 +14,17 @@ const events = await getCollection("icsCalendar");
 const upcomingEvents = futureEvents(events);
 
 ---
-<div class="grid is-col-min-12">
+<div class="block">
+    <p class="is-size-5-tablet mb-5">We meet near Davis Square. Please reach out if you're interested in joining an event.</p>
+</div>
+<hr>
+<div class="grid block is-col-min-12">
     {upcomingEvents.slice(0, 4).map((event) => (
             <Event {event}/>
         ))
     }
 </div>
+<hr>
 <div class="block has-text-centered ">
     <a class="button is-primary is-outlined has-background-light" href={calendar.public}>See All Events</a>
 </div>

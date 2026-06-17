@@ -7,18 +7,12 @@ import Box from "../components/Box.astro";
 ---
 
 <MainLayout>
-	<header class="section pb-5" role="banner">
+	<header class="section py-5" role="banner">
 		<Box><Hero /></Box>
 	</header>
 	<section class="section pt-0">
 		<Box title="Upcoming Events">
-			<div class="block">
-				<p class="is-size-5 mb-5">We meet near Davis Square. Please reach out if you're interested in joining an event.</p>
-			</div>
-			<hr>
-			<div class="block">
-				<Calendar />
-			</div>
+			<Calendar />
 		</Box>
 		<Box title="How and Why We Daven">
 			<WhoWeAre />

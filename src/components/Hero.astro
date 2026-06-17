@@ -9,57 +9,53 @@ import { siteConfig } from "../schemas/config";
 const { description, email } = siteConfig;
 ---
 
-<section class="hero is-small">
-  <div class="hero-body m-0 p-0">
-    <figure class="image block">
-      <div class="is-hidden-mobile">
-        <div class="is-hidden-dark-mode">
-          <Picture 
-            src={logotype} 
-            formats={['avif', 'webp']} 
-            alt=`Logo of ${siteConfig.name}.` 
-          />
-        </div>
-        <div class="is-hidden-light-mode">
-          <Picture 
-            src={logotypeWhite} 
-            formats={['avif', 'webp']} 
-            alt=`Logo of ${siteConfig.name}.` 
-          />
-        </div>
-      </div>
-      <div class="is-hidden-tablet">
-        <div class="is-hidden-dark-mode">
-          <Picture 
-            src={logotypeV} 
-            formats={['avif', 'webp']} 
-            alt=`Logo of ${siteConfig.name}.` 
-          />
-        </div>
-        <div class="is-hidden-light-mode">
-          <Picture 
-            src={logotypeVWhite} 
-            formats={['avif', 'webp']} 
-            alt=`Logo of ${siteConfig.name}.` 
-          />
-        </div>
-      </div>
-    </figure>
-    <div class="block">
-      <p class="mt-5 is-size-5-tablet">{description}</p>
+<figure class="image block">
+  <div class="is-hidden-mobile">
+    <div class="is-hidden-dark-mode">
+      <Picture 
+        src={logotype} 
+        formats={['avif', 'webp']} 
+        alt=`Logo of ${siteConfig.name}.` 
+      />
     </div>
-    <div class="block">
-      <div class="buttons is-centered">
-      <a class="button is-primary is-outlined has-background-light" href=`mailto:${email}`>
-          <span class="icon">
-            <Icon name="mdi-light:email"/>
-          </span>
-          <span>{email}</span>
-      </a>
-      </div>
+    <div class="is-hidden-light-mode">
+      <Picture 
+        src={logotypeWhite} 
+        formats={['avif', 'webp']} 
+        alt=`Logo of ${siteConfig.name}.` 
+      />
     </div>
   </div>
-</section>
+  <div class="is-hidden-tablet">
+    <div class="is-hidden-dark-mode">
+      <Picture 
+        src={logotypeV} 
+        formats={['avif', 'webp']} 
+        alt=`Logo of ${siteConfig.name}.` 
+      />
+    </div>
+    <div class="is-hidden-light-mode">
+      <Picture 
+        src={logotypeVWhite} 
+        formats={['avif', 'webp']} 
+        alt=`Logo of ${siteConfig.name}.` 
+      />
+    </div>
+  </div>
+</figure>
+<div class="block">
+  <p class="mt-5 is-size-5-tablet">{description}</p>
+</div>
+<div class="block">
+  <div class="buttons is-centered">
+  <a class="button is-primary is-outlined has-background-light" href=`mailto:${email}`>
+      <span class="icon">
+        <Icon name="mdi-light:email"/>
+      </span>
+      <span>{email}</span>
+  </a>
+  </div>
+</div>
 
 <style>
   .is-hidden-light-mode { display: none; }
