@@ -23,7 +23,6 @@ export const icsCalendar = defineCollection({
                 const result = icsSchema.safeParse(entry);
                 return result.success;
             })
-            .sort((a, b) => a.start.getTime() - b.start.getTime());
     }
 });
 

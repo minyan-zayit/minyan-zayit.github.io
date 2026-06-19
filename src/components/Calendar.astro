@@ -9,10 +9,12 @@ const futureEvents = (events: CollectionEntry<"icsCalendar">[]) => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    return events.filter((event) => {
-        const eventDate = new Date(event.data.start);
-        return eventDate >= today;
-    });
+    return events
+        .filter((event) => {
+            const eventDate = new Date(event.data.start);
+            return eventDate >= today;
+        })
+        .sort((a, b) => a.data.start.getTime() - b.data.start.getTime());
 };
 
 const events = await getCollection("icsCalendar");
