@@ -1,30 +1,38 @@
 ---
 import { getCollection } from "astro:content";
-import type { CollectionEntry } from 'astro:content';
-import Event from './Event.astro';
+import type { CollectionEntry } from "astro:content";
+import Event from "./Event.astro";
 import { siteConfig } from "../schemas/config";
 const { calendar } = siteConfig;
 
-const futureEvents = (events: CollectionEntry<'icsCalendar'>[] ) => {
-  const today = new Date();
-  return events.filter(event => { return event.data.start >= today;})
+const futureEvents = (events: CollectionEntry<"icsCalendar">[]) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    return events.filter((event) => {
+        const eventDate = new Date(event.data.start);
+        return eventDate >= today;
+    });
 };
 
 const events = await getCollection("icsCalendar");
 const upcomingEvents = futureEvents(events);
-
 ---
+
 <div class="block">
-    <p class="is-size-5-tablet mb-5">We meet near Davis Square. Please reach out if you're interested in joining an event.</p>
+    <p class="is-size-5-tablet mb-5">
+        We meet near Davis Square. Please reach out if you're interested in
+        joining an event.
+    </p>
 </div>
-<hr>
+<hr />
 <div class="grid block is-col-min-12">
-    {upcomingEvents.slice(0, 4).map((event) => (
-            <Event {event}/>
-        ))
-    }
+    {upcomingEvents.slice(0, 4).map((event) => <Event {event} />)}
 </div>
-<hr>
-<div class="block has-text-centered ">
-    <a class="button is-primary is-outlined has-background-light" href={calendar.public}>See All Events</a>
+<hr />
+<div class="block has-text-centered">
+    <a
+        class="button is-primary is-outlined has-background-light"
+        href={calendar.public}>See All Events</a
+    >
 </div>
