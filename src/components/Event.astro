@@ -36,13 +36,10 @@ const eventDetails = {
 
 <div class="cell my-1" id=`event-${event.id}`>
     <div class="block">
-    <p>{ eventDetails.date } at { eventDetails.time }</p>
-    <h2 class="title is-5 is-uppercase has-text-weight-normal">{ eventDetails.summary }</h2>
+        <p class="is-size-6">{ eventDetails.date } at { eventDetails.time }</p>
+        <h2 class="title is-size-5 mb-0 has-text-weight-normal">{ eventDetails.summary }</h2>
+        <span class="is-size-6 is-primary is-light">{ eventDetails.location }</span>
     </div>
-    <!-- { eventDetails.description ?
-        <a class="button is-fullwidth is-primary is-outlined has-background-light" href={ eventDetails.description }>RSVP</a> :
-        <button class="button is-fullwidth is-primary is-outlined has-background-light" disabled>RSVP Not Available</button>
-    } -->
 </div>
 
 <style>
