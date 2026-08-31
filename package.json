@@ -15,7 +15,7 @@
     "@iconify-json/mdi-light": "^1.2.2",
     "astro": "^7.2.6",
     "astro-icon": "^1.2.0",
-    "astro-seo": "^1.1.0",
+    "astro-seo": "^1.2.0",
     "bulma": "^1.0.4",
     "marked": "^18.0.9",
     "node-gyp": "^13.0.1",
