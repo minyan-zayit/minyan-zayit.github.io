@@ -21,6 +21,8 @@ export const configSchema = z.object({
   subtitle: z.string().optional(),
   description: z.string().optional(),
   whoWeAre: z.string(),
+  donate: z.url(),
+  newsletter: z.url(),
   email: z.email(),
   calendar: calendarSchema
 })

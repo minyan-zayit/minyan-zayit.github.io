@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { Icon } from 'astro-icon/components';
 import Event from "./Event.astro";
 import { siteConfig } from "../schemas/config";
 const { calendar } = siteConfig;
@@ -25,9 +26,13 @@ const upcomingEvents = futureEvents(events);
     {upcomingEvents.slice(0, 6).map((event) => <Event {event} />)}
 </div>
 <hr />
-<div class="block has-text-centered">
-    <a
-        class="button is-primary is-outlined has-background-light"
-        href={calendar.public}>See All Events</a
-    >
+<div class="block">
+    <div class="buttons is-centered">
+    <a class="button is-primary is-outlined has-background-light" href={calendar.public}>
+        <span class="icon">
+          <Icon name="mdi:email"/>
+        </span>
+        <span>See All Events</span>
+    </a>
+    </div>
 </div>

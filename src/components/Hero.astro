@@ -6,7 +6,7 @@ import logotypeWhite from '../assets/mz_logo_white.png';
 import logotypeV from '../assets/mz_logo_vertical.png';
 import logotypeVWhite from '../assets/mz_logo_vertical_white.png';
 import { siteConfig } from "../schemas/config";
-const { description, email } = siteConfig;
+const { description, email, donate, newsletter} = siteConfig;
 ---
 
 <figure class="image block">
@@ -48,12 +48,24 @@ const { description, email } = siteConfig;
 </div>
 <div class="block">
   <div class="buttons is-centered">
-  <a class="button is-primary is-outlined has-background-light" href=`mailto:${email}`>
-      <span class="icon">
-        <Icon name="mdi-light:email"/>
-      </span>
-      <span>{email}</span>
-  </a>
+    <a class="button is-primary is-outlined has-background-light" href=`mailto:${email}`>
+        <span class="icon">
+          <Icon name="mdi:email"/>
+        </span>
+        <span>{email}</span>
+    </a>
+    <a class="button is-primary is-outlined has-background-light" href={donate}>
+        <span class="icon">
+          <Icon name="mdi:charity"/>
+        </span>
+        <span>Support Our Work</span>
+    </a>
+    <a class="button is-primary is-outlined has-background-light" href={newsletter}>
+        <span class="icon">
+          <Icon name="mdi:email-newsletter"/>
+        </span>
+        <span>Receive Our Newsletter</span>
+    </a>
   </div>
 </div>
 
