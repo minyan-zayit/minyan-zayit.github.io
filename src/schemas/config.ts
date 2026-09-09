@@ -8,12 +8,12 @@ export const icsSchema = z.object({
   location: z.string().optional(),
   start: z.date(),
   end: z.date(),
-  url: z.string().url().optional(),
+  url: z.url().optional(),
 });
 
 export const calendarSchema = z.object({
-  ics: z.string().url(),
-  public: z.string().url()
+  ics: z.url(),
+  public: z.url()
 })
 
 export const configSchema = z.object({
@@ -21,7 +21,7 @@ export const configSchema = z.object({
   subtitle: z.string().optional(),
   description: z.string().optional(),
   whoWeAre: z.string(),
-  email: z.string().email(),
+  email: z.email(),
   calendar: calendarSchema
 })
 
