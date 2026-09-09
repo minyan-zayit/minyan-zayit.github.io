@@ -25,12 +25,32 @@ const timeOptions = {
     timeZone: tz
 } as const;
 
+const descriptionFields = (event.data.description ?? "")
+  .split(/\s*;\s*|\r?\n/)
+  .map((part) => part.trim())
+  .filter(Boolean)
+  .map((part) => {
+    const separatorIndex = part.indexOf(":");
+
+    if (separatorIndex === -1) {
+      return {
+        label: part,
+        value: "",
+      };
+    }
+
+    return {
+      label: part.slice(0, separatorIndex).trim(),
+      value: part.slice(separatorIndex + 1).trim(),
+    };
+});
+
 const eventDetails = {
     date: event.data.start.toLocaleDateString("en-US", dateOptions),
     time: event.data.start.toLocaleTimeString("en-US", timeOptions),
     summary: event.data.summary,
     location: event.data.location,
-    description: event.data.description
+    description: descriptionFields
 }
 ---
 
@@ -39,6 +59,15 @@ const eventDetails = {
         <p class="is-size-6">{ eventDetails.date } at { eventDetails.time }</p>
         <h2 class="title is-size-5 mb-0 has-text-weight-normal">{ eventDetails.summary }</h2>
         <span class="is-size-6 is-primary is-light">{ eventDetails.location }</span>
+        {
+            eventDetails.description.map(({ label, value }) => (
+            <div>
+                <a href={value} target="_blank" rel="noopener noreferrer">
+                    {label} →
+                </a>
+            </div>
+            ))
+        }
     </div>
 </div>
 
