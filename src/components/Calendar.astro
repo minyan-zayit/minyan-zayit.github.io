@@ -22,6 +22,12 @@ const events = await getCollection("icsCalendar");
 const upcomingEvents = futureEvents(events);
 ---
 
+<div class="mt-5 is-size-5">
+    Listed locations are approximate. We will share exact locations close to the date with those who RSVP.
+</div>
+
+<hr>
+
 <div class="grid block">
     {upcomingEvents.slice(0, 6).map((event) => <Event {event} />)}
 </div>
