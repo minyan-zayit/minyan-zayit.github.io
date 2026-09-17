@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import type { Ics } from "../schemas/config";
 
 interface Props {
@@ -56,14 +57,19 @@ const eventDetails = {
 
 <div class="cell my-1" id=`event-${event.id}`>
     <div class="block">
-        <p class="is-size-6">{ eventDetails.date } at { eventDetails.time }</p>
-        <h2 class="title is-size-5 mb-0 has-text-weight-normal">{ eventDetails.summary }</h2>
-        <span class="is-size-6 is-primary is-light">{ eventDetails.location }</span>
+        <div class="block">
+            <p class="is-size-6">{ eventDetails.date } at { eventDetails.time }</p>
+            <h2 class="title is-size-5 mb-0 has-text-weight-normal">{ eventDetails.summary }</h2>
+            <span class="is-size-6 is-primary is-light">{ eventDetails.location }</span>
+        </div>
         {
             eventDetails.description.map(({ label, value }) => (
-            <div>
-                <a href={value} target="_blank" rel="noopener noreferrer">
-                    {label} →
+            <div class="block">
+                <a href={value} class="button is-primary is-outlined has-background-light is-fullwidth" target="_blank" rel="noopener noreferrer">            
+                    <span class="icon">
+                        <Icon name="mdi:calendar-question"/>
+                    </span>
+                    <span>{label}</span>
                 </a>
             </div>
             ))
