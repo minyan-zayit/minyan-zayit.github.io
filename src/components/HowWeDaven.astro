@@ -1,0 +1,16 @@
+---
+import { getEntry, render } from "astro:content";
+const howWeDaven = await getEntry("content", "how-we-daven");
+
+if (!howWeDaven) {
+  throw new Error("How DO you daven?");
+}
+
+const { Content } = await render(howWeDaven)
+---
+
+<div class="block">
+    <article class="mt-5 is-size-5" >
+        <Content />
+    </article>
+</div>

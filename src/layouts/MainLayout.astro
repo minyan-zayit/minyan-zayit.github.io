@@ -2,9 +2,18 @@
 import { SEO } from "astro-seo";
 import "@fontsource-variable/figtree";
 import "../styles/global.scss";
+import { getEntry, render } from "astro:content";
+
+const descriptionEntry = await getEntry("content", "description");
+
+if (!descriptionEntry) {
+  throw new Error("Tell me about yourself?");
+}
+
+const description = descriptionEntry.body ? descriptionEntry.body.trim() : '';
 
 import { siteConfig } from "../schemas/config";
-const { name, subtitle, description } = siteConfig;
+const { name, subtitle } = siteConfig;
 ---
 
 <html lang="en">

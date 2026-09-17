@@ -1,10 +1,18 @@
 import { defineCollection } from "astro:content";
-import ical from "node-ical";
+import { glob } from "astro/loaders";
+import * as ical from "node-ical";
 
 import { siteConfig, icsSchema } from "./schemas/config";
 const { calendar } = siteConfig;
 
-export const icsCalendar = defineCollection({
+const content = defineCollection({
+    loader: glob({
+        pattern: "*.md",
+        base: "./src/content",
+    }),
+});
+
+const icsCalendar = defineCollection({
     loader: async () => {
         const data = await ical.async.fromURL(calendar.ics);
 
@@ -19,11 +27,8 @@ export const icsCalendar = defineCollection({
                 end: event.end,
                 url: event.url
             }))
-            .filter((entry) => {
-                const result = icsSchema.safeParse(entry);
-                return result.success;
-            })
-    }
+    },
+    schema: icsSchema
 });
 
-export const collections = { icsCalendar };
+export const collections = { icsCalendar, content, };

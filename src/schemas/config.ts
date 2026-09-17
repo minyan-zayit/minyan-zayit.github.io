@@ -19,8 +19,6 @@ export const calendarSchema = z.object({
 export const configSchema = z.object({
   name: z.string(),
   subtitle: z.string().optional(),
-  description: z.string().optional(),
-  whoWeAre: z.string(),
   donate: z.url(),
   newsletter: z.url(),
   email: z.email(),

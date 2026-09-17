@@ -1,0 +1,1 @@
+Minyan Zayit is an anti-Zionist, traditional egalitarian Jewish community based in Somerville and Cambridge, Massachusetts. We seek to be a welcoming space for Jews who oppose Israel's occupation of Palestinian lands, policies of apartheid, and ongoing genocide.

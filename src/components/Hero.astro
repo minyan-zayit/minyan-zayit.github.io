@@ -6,7 +6,8 @@ import logotypeWhite from '../assets/mz_logo_white.png';
 import logotypeV from '../assets/mz_logo_vertical.png';
 import logotypeVWhite from '../assets/mz_logo_vertical_white.png';
 import { siteConfig } from "../schemas/config";
-const { description, email, donate, newsletter} = siteConfig;
+import Description from "../content/description.md";
+const { email, donate, newsletter} = siteConfig;
 ---
 
 <figure class="image block">
@@ -44,7 +45,10 @@ const { description, email, donate, newsletter} = siteConfig;
   </div>
 </figure>
 <div class="block">
-  <p class="mt-5 is-size-5">{description}</p>
+
+  <article class="mt-5 is-size-5" >
+    <Description/>
+  </article>
 </div>
 <div class="block">
   <div class="buttons is-centered">
