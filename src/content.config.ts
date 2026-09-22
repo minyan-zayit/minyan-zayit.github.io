@@ -14,7 +14,24 @@ const content = defineCollection({
 
 const icsCalendar = defineCollection({
     loader: async () => {
-        const data = await ical.async.fromURL(calendar.ics);
+        const url = new URL(calendar.ics);
+        url.searchParams.set("_", Date.now().toString());
+
+        const response = await fetch(url, {
+            headers: {
+                "Cache-Control": "no-cache, no-store, max-age=0",
+                "Pragma": "no-cache",
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(
+                `ICS request failed: ${response.status} ${response.statusText}`
+            );
+        }
+
+        const icsText = await response.text();
+        const data = await ical.async.parseICS(icsText);
 
         return Object.values(data)
             .filter((item): item is ical.VEvent => !!item && item.type === "VEVENT")

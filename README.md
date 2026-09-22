@@ -14,4 +14,4 @@ To launch development server...
 npm run dev
 ```
 
-The site pulls events from a Proton calendar---point to this in `calendar.ics` in `data/config.json`. Site is rebuilt automatically at 2AM (UTC) every night to accomodate calendar changes.
+The site pulls events from a Proton calendar---point to this in `calendar.ics` in `data/config.json`. Site is rebuilt automatically at 2:17 AM (UTC) every night to accomodate calendar changes.
